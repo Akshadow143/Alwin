@@ -1,13 +1,38 @@
-document.querySelector("button").onclick = () => {
+// Boot animation
+window.addEventListener("load", () => {
+    document.body.style.opacity = "0";
 
-document.body.style.transition = "1s";
+    setTimeout(() => {
+        document.body.style.transition = "opacity 1.2s ease";
+        document.body.style.opacity = "1";
+    }, 200);
+});
 
-document.body.style.opacity = 0;
+// Random glitch pulse
+const glitch = document.querySelector(".glitch");
 
-setTimeout(()=>{
+setInterval(() => {
+    glitch.classList.add("active");
 
-location.href="home.html";
+    setTimeout(() => {
+        glitch.classList.remove("active");
+    }, 180);
 
-},1000);
+}, 4000);
 
-}
+// Neon button ripple
+document.querySelectorAll(".btn").forEach(button => {
+
+    button.addEventListener("mouseenter", () => {
+
+        button.style.transform = "scale(1.05)";
+
+    });
+
+    button.addEventListener("mouseleave", () => {
+
+        button.style.transform = "scale(1)";
+
+    });
+
+});
