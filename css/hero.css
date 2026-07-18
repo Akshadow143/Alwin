@@ -1,19 +1,15 @@
 .profile-frame{
-    width:180px;
-    height:180px;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
+    width:150px;
+    height:150px;
+    border:2px solid red;
     overflow:hidden;
 }
 
 .profile-frame img{
-    width:100px;
-    height:auto;
-
-    object-fit:contain;
+    width:80px !important;
+    height:auto !important;
+    display:block;
+    margin:auto;
 }
 /* ===================================
    ANIMATION
