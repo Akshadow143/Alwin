@@ -1,6 +1,12 @@
-/* =========================
-   GLOBAL
-========================= */
+/* ===========================
+   GOOGLE FONTS
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
 
 *{
     margin:0;
@@ -19,518 +25,96 @@ body{
 
     font-family:'Orbitron',sans-serif;
 
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
-
-    position:relative;
+    overflow-x:hidden;
 
 }
 
+/* ===========================
+   COLORS
+=========================== */
 
-/* =========================
-   BACKGROUND
-========================= */
+:root{
 
-body::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        radial-gradient(circle at top,#00e5ff22,transparent 40%),
-        radial-gradient(circle at bottom,#7a00ff22,transparent 40%);
-
-    z-index:-2;
+    --bg:#050505;
+    --primary:#00E5FF;
+    --secondary:#7A00FF;
+    --accent:#FF3CAC;
+    --text:#FFFFFF;
+    --text2:#BDBDBD;
 
 }
 
+/* ===========================
+   LINKS
+=========================== */
 
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-    text-align:center;
-
-    z-index:2;
-
-    padding-top:140px;
-
-}
-
-.status{
-
-    color:#00e5ff;
-
-    font-size:.9rem;
-
-    letter-spacing:3px;
-
-    margin-bottom:25px;
-
-}
-
-h1{
-
-    font-size:6rem;
-
-    font-weight:900;
-
-    letter-spacing:12px;
-
-    margin-bottom:15px;
-
-    text-shadow:
-        0 0 10px #00e5ff,
-        0 0 25px #00e5ff,
-        0 0 45px #00e5ff;
-
-}
-
-h2{
-
-    color:#00e5ff;
-
-    margin-bottom:20px;
-
-    font-weight:700;
-
-}
-
-.subtitle{
-
-    color:#bbbbbb;
-
-    font-family:"JetBrains Mono",monospace;
-
-    line-height:1.8;
-
-    margin-bottom:40px;
-
-}
-
-.subtitle span{
-
-    color:#00e5ff;
-
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.buttons{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-.btn{
+a{
 
     text-decoration:none;
 
-    color:#00e5ff;
+    color:inherit;
 
-    border:2px solid #00e5ff;
+}
 
-    padding:14px 36px;
+/* ===========================
+   BUTTON
+=========================== */
+
+.btn{
+
+    display:inline-block;
+
+    padding:14px 35px;
+
+    border:2px solid var(--primary);
+
+    color:var(--primary);
+
+    border-radius:8px;
 
     transition:.35s;
 
-    letter-spacing:2px;
+    margin-top:20px;
 
 }
 
 .btn:hover{
 
-    background:#00e5ff;
+    background:var(--primary);
 
-    color:#000;
+    color:black;
 
     box-shadow:
-        0 0 15px #00e5ff,
-        0 0 40px #00e5ff;
+    0 0 20px var(--primary),
+    0 0 45px var(--primary);
 
 }
 
 .secondary{
 
-    border-color:#7a00ff;
+    border-color:var(--secondary);
 
-    color:#7a00ff;
+    color:var(--secondary);
 
 }
 
 .secondary:hover{
 
-    background:#7a00ff;
+    background:var(--secondary);
 
     color:white;
 
-    box-shadow:
-        0 0 15px #7a00ff,
-        0 0 40px #7a00ff;
-
 }
 
-
-/* =========================
-   NOISE
-========================= */
-
-.noise{
-
-    position:fixed;
-
-    inset:0;
-
-    opacity:.05;
-
-    pointer-events:none;
-
-    background-image:
-    linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px);
-
-    background-size:4px 4px;
-
-}
-
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:768px){
-
-h1{
-
-    font-size:3.2rem;
-
-    letter-spacing:5px;
-
-}
-
-.buttons{
-
-    flex-direction:column;
-
-}
-
-.btn{
-
-    width:220px;
-
-    margin:auto;
-
-}
-
-}
-/* =========================
-BOOT SCREEN
-========================= */
-
-#boot-screen{
-
-    position:fixed;
-
-    inset:0;
-
-    background:#000;
-
-    color:#00ff99;
-
-    font-family:"JetBrains Mono",monospace;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:40px;
-
-    z-index:9999;
-
-}
-
-#boot-text{
-
-    white-space:pre-wrap;
-
-    font-size:18px;
-
-    line-height:1.8;
-
-}
-
-#portfolio{
-
-    display:none;
-
-}
-/* =========================
-   CUSTOM CURSOR
-========================= */
-
-body{
-    cursor:none;
-}
-
-.cursor{
-
-    width:18px;
-    height:18px;
-
-    border:2px solid #00E5FF;
-
-    border-radius:50%;
-
-    position:fixed;
-
-    transform:translate(-50%,-50%);
-
-    pointer-events:none;
-
-    z-index:99999;
-
-    transition:
-        width .2s,
-        height .2s,
-        border-color .2s,
-        box-shadow .2s;
-
-    box-shadow:
-        0 0 12px #00E5FF,
-        0 0 24px #00E5FF;
-
-}
-
-.cursor-hover{
-
-    width:36px;
-    height:36px;
-
-    border-color:#7A00FF;
-
-    box-shadow:
-        0 0 18px #7A00FF,
-        0 0 36px #7A00FF;
-
-}
-/* =========================
-NAVBAR
-========================= */
-
-.navbar{
-
-    position:fixed;
-
-    top:0;
-    left:0;
-
-    width:100%;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    padding:20px 8%;
-
-    background:rgba(5,5,5,.6);
-
-    backdrop-filter:blur(10px);
-
-    z-index:1000;
-
-}
-
-.logo{
-
-    font-size:1.4rem;
-
-    color:#00E5FF;
-
-    font-weight:bold;
-
-}
-
-.logo span{
-
-    color:#7A00FF;
-
-}
-
-.nav-links{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:35px;
-
-}
-
-.nav-links a{
-
-    text-decoration:none;
-
-    color:white;
-
-    transition:.3s;
-
-}
-
-.nav-links a:hover{
-
-    color:#00E5FF;
-
-    text-shadow:0 0 12px #00E5FF;
-
-}
-/* =========================
-   ABOUT SECTION
-========================= */
-
-#about{
+/* ===========================
+   SECTION
+=========================== */
+
+section{
 
     padding:120px 10%;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
 
 }
-
-.about-content{
-
-    max-width:900px;
-    margin:auto;
-
-}
-
-.about-text{
-
-    text-align:center;
-
-}
-
-.about-text h3{
-
-    font-size:2rem;
-
-    color:#00E5FF;
-
-    margin-bottom:25px;
-
-    text-shadow:0 0 10px #00E5FF;
-
-}
-
-.about-text p{
-
-    color:#d0d0d0;
-
-    font-family:"JetBrains Mono", monospace;
-
-    line-height:1.9;
-
-    margin-bottom:25px;
-
-    font-size:1rem;
-
-}
-
-.about-text .btn{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-}
-/* =========================
-   ABOUT SECTION
-========================= */
-
-#about{
-
-    padding:120px 10%;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-}
-
-.about-content{
-
-    max-width:900px;
-    margin:auto;
-
-}
-
-.about-text{
-
-    text-align:center;
-
-}
-
-.about-text h3{
-
-    font-size:2rem;
-
-    color:#00E5FF;
-
-    margin-bottom:25px;
-
-    text-shadow:0 0 10px #00E5FF;
-
-}
-
-.about-text p{
-
-    color:#d0d0d0;
-
-    font-family:"JetBrains Mono", monospace;
-
-    line-height:1.9;
-
-    margin-bottom:25px;
-
-    font-size:1rem;
-
-}
-
-.about-text .btn{
-
-    display:inline-block;
-
-    margin-top:20px;
-
-}
-/* =========================
-   SECTION TITLE
-========================= */
 
 .section-title{
 
@@ -542,85 +126,46 @@ NAVBAR
 
 .section-title h2{
 
-    font-size:2.8rem;
+    font-size:3rem;
 
-    color:#00E5FF;
+    color:var(--primary);
 
-    text-shadow:0 0 12px #00E5FF;
-
-    margin-bottom:10px;
+    text-shadow:0 0 20px var(--primary);
 
 }
 
 .section-title p{
 
-    color:#bdbdbd;
+    color:var(--text2);
 
-    font-family:"JetBrains Mono", monospace;
+    margin-top:15px;
 
-}
-/* =========================
-   PROJECTS
-========================= */
-
-#projects{
-
-    padding:120px 10%;
+    font-family:"JetBrains Mono",monospace;
 
 }
 
-.projects-grid{
+/* ===========================
+   NOISE
+=========================== */
 
-    display:grid;
+.noise{
 
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    position:fixed;
 
-    gap:30px;
+    inset:0;
 
-    margin-top:50px;
+    pointer-events:none;
 
-}
+    opacity:.03;
 
-.project-card{
+    background-image:
 
-    background:rgba(255,255,255,.05);
+    linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),
 
-    border:1px solid rgba(0,229,255,.2);
+    linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
 
-    border-radius:16px;
+    background-size:4px 4px;
 
-    padding:30px;
-
-    transition:.35s;
-
-    backdrop-filter:blur(10px);
-
-}
-
-.project-card:hover{
-
-    transform:translateY(-10px);
-
-    border-color:#00E5FF;
-
-    box-shadow:0 0 25px rgba(0,229,255,.5);
-
-}
-
-.project-card h3{
-
-    color:#00E5FF;
-
-    margin-bottom:20px;
-
-}
-
-.project-card p{
-
-    color:#d0d0d0;
-
-    font-family:"JetBrains Mono", monospace;
-
-    line-height:1.8;
+    z-index:-2;
 
 }
