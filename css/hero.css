@@ -1,84 +1,6 @@
 /* ===================================
-   HERO SECTION
+   PROFILE IMAGE
 =================================== */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-    gap:60px;
-
-    padding-top:120px;
-
-}
-
-/* Left */
-
-.hero-left{
-
-    flex:1;
-
-}
-
-.status{
-
-    color:#00E5FF;
-
-    font-size:.9rem;
-
-    margin-bottom:20px;
-
-    letter-spacing:2px;
-
-    font-family:"JetBrains Mono", monospace;
-
-}
-
-.subtitle{
-
-    margin-top:25px;
-
-    color:#BDBDBD;
-
-    font-size:1.2rem;
-
-}
-
-.description{
-
-    margin-top:25px;
-
-    max-width:650px;
-
-    line-height:1.8;
-
-    color:#D5D5D5;
-
-    font-size:1rem;
-
-    font-family:"JetBrains Mono", monospace;
-
-}
-
-.buttons{
-
-    margin-top:40px;
-
-    display:flex;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-
-/* Right */
 
 .hero-right{
 
@@ -92,51 +14,77 @@
 
 }
 
-/* ===================================
-   PROFILE IMAGE
-=================================== */
-
 .profile-frame{
 
-    width:360px;
+    width:380px;
+    height:380px;
 
-    height:360px;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    animation:floatImage 4s ease-in-out infinite;
+
+}
+
+.profile-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:340px;
+    height:340px;
 
     border-radius:50%;
 
-    padding:6px;
-
-    background:linear-gradient(
-        135deg,
-        #00E5FF,
-        #7A00FF,
-        #FF3CAC
-    );
-
-    animation:rotateBorder 8s linear infinite;
+    border:3px solid #00E5FF;
 
     box-shadow:
-    0 0 30px rgba(0,229,255,.45),
-    0 0 60px rgba(122,0,255,.25);
+        0 0 20px #00E5FF,
+        0 0 50px #00E5FF,
+        0 0 90px rgba(0,229,255,.5);
+
+    animation:rotateBorder 8s linear infinite;
 
 }
 
 .profile-frame img{
 
-    width:100%;
+    width:300px;
 
-    height:100%;
+    height:auto;
 
-    border-radius:50%;
+    object-fit:contain;
 
-    object-fit:cover;
+    position:relative;
 
-    border:5px solid #050505;
+    z-index:2;
+
+    filter:
+        drop-shadow(0 0 15px #00E5FF)
+        drop-shadow(0 0 35px #7A00FF);
+
+    transition:.4s;
+
+}
+
+.profile-frame img:hover{
+
+    transform:scale(1.05);
+
+    filter:
+        drop-shadow(0 0 30px #00E5FF)
+        drop-shadow(0 0 70px #7A00FF);
 
 }
 
 /* ===================================
-   ANIMATIONS
+   ANIMATION
 =================================== */
 
 @keyframes rotateBorder{
@@ -155,14 +103,6 @@
 
 }
 
-/* Floating Animation */
-
-.hero-right{
-
-    animation:floatImage 4s ease-in-out infinite;
-
-}
-
 @keyframes floatImage{
 
     0%{
@@ -173,7 +113,7 @@
 
     50%{
 
-        transform:translateY(-15px);
+        transform:translateY(-12px);
 
     }
 
@@ -189,47 +129,49 @@
    MOBILE
 =================================== */
 
-@media(max-width:1000px){
-
-.hero{
-
-    flex-direction:column-reverse;
-
-    text-align:center;
-
-}
-
-.description{
-
-    margin:auto;
-
-    margin-top:25px;
-
-}
-
-.buttons{
-
-    justify-content:center;
-
-}
+@media(max-width:768px){
 
 .profile-frame{
 
     width:280px;
-
     height:280px;
 
 }
 
-.glitch{
+.profile-frame::before{
 
-    font-size:2.8rem;
+    width:240px;
+    height:240px;
 
 }
 
-.typing{
+.profile-frame img{
 
-    font-size:1.3rem;
+    width:210px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.profile-frame{
+
+    width:230px;
+    height:230px;
+
+}
+
+.profile-frame::before{
+
+    width:190px;
+    height:190px;
+
+}
+
+.profile-frame img{
+
+    width:170px;
 
 }
 
