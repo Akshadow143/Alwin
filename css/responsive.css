@@ -195,11 +195,27 @@
 
     }
 
-    @media (max-width:480px){
-
     .typing-text{
-        font-size:0.9rem;
+    display:inline-block;
+    white-space:nowrap;
+    overflow:hidden;
+    border-right:2px solid #00E5FF;
+    width:0;
+    animation:
+        typing 3s steps(27) forwards,
+        blink .8s step-end infinite;
+}
+
+@keyframes typing{
+    from{width:0;}
+    to{width:27ch;}
+}
+
+@keyframes blink{
+    50%{
+        border-color:transparent;
     }
+}
 
 }
 
