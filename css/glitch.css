@@ -234,26 +234,16 @@
    Typing Text
 =========================== */
 
-.typing{
-
-    font-size:1.8rem;
-
-    margin-top:20px;
-
-    color:#00E5FF;
-
+.typing-text{
+    display:inline-block;
     white-space:nowrap;
-
     overflow:hidden;
-
-    border-right:3px solid #00E5FF;
+    border-right:2px solid #00E5FF;
 
     width:0;
-
     animation:
-    typing 4s steps(28,end) forwards,
-    blink .7s infinite;
-
+        typing 3s steps(27,end) forwards,
+        blink .8s infinite;
 }
 
 @keyframes typing{
