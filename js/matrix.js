@@ -28,13 +28,26 @@ const columns = Math.floor(canvas.width / fontSize);
 const drops = Array(columns).fill(1);
 
 function draw() {
-
-    ctx.fillStyle = "rgba(5,5,5,0.08)";
+   ctx.shadowBlur = 0;
+   ctx.fillStyle = "rgba(5,5,5,0.12)";
     ctx.fillRect(0,0,canvas.width,canvas.height);
 
-    ctx.fillStyle = "#00E5FF";
+    ctx.font = "bold " + fontSize + "px monospace";
 
-    ctx.font = fontSize + "px monospace";
+// Anime color palette
+const colors = [
+    "#00E5FF", // Cyan
+    "#00BFFF", // Sky Blue
+    "#7A00FF", // Purple
+];
+
+const color = colors[Math.floor(Math.random() * colors.length)];
+
+ctx.fillStyle = color;
+
+// Glow effect
+ctx.shadowColor = color;
+ctx.shadowBlur = 10;
 
     for(let i=0;i<drops.length;i++){
 
